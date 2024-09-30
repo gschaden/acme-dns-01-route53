@@ -57,6 +57,7 @@ export const create = function(
     init: (opts: any): null => {
       return null;
     },
+    propagationDelay: 30000,
     zones: async (opts: any) => {
       try {
         let zones = await getZones(client);
@@ -143,7 +144,7 @@ export const create = function(
                   ResourceRecordSet: {
                     Name: recordName,
                     Type: "TXT",
-                    TTL: 300,
+                    TTL: 10,
                     ResourceRecords: resourceRecords
                   }
                 }
